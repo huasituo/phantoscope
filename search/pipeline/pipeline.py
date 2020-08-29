@@ -74,8 +74,8 @@ def create_pipeline(name, processors=None, encoder=None, description=None):
             raise ExistError(f"pipeline <{name}> already exists", "")
         pro = []
         encoder_res = {}
-        processor_res = {}
         for processor in processors:
+            processor_res = {}
             pr = operator_detail(processor["name"])
             processor_res["operator"] = pr.to_dict()
             processor_res["instance"] = pr.inspect_instance(processor["instance"])
